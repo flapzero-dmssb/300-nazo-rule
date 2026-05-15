@@ -33,11 +33,19 @@ body{
     line-height:1.9;
 }
 
+/* =========================
+   レイアウト
+========================= */
+
 .container{
     width:min(900px, 92%);
     margin:auto;
     padding:40px 0 80px;
 }
+
+/* =========================
+   ヘッダー
+========================= */
 
 header{
     text-align:center;
@@ -47,7 +55,7 @@ header{
 header h1{
     font-size:clamp(28px, 5vw, 46px);
     letter-spacing:0.08em;
-    line-height: 1.4;
+    line-height:1.4;
     margin-bottom:12px;
 }
 
@@ -55,6 +63,10 @@ header p{
     color:var(--sub);
     font-size:14px;
 }
+
+/* =========================
+   カード
+========================= */
 
 .card{
     background:var(--card);
@@ -91,6 +103,10 @@ header p{
     margin-bottom:10px;
 }
 
+/* =========================
+   注意事項
+========================= */
+
 .notice{
     background:#2a1f12;
     border:1px solid #7d5b2c;
@@ -99,6 +115,10 @@ header p{
 .notice strong{
     color:#ffd27a;
 }
+
+/* =========================
+   ボタン
+========================= */
 
 .button-area{
     text-align:center;
@@ -121,28 +141,16 @@ header p{
     opacity:0.9;
 }
 
+/* =========================
+   フッター
+========================= */
+
 footer{
     margin-top:60px;
     text-align:center;
     color:#777;
     font-size:13px;
 }
-
-@media (max-width:600px){
-
-    .card{
-        padding:22px;
-    }
-
-    .card h2{
-        font-size:20px;
-    }
-
-    body{
-        line-height:1.8;
-    }
-}
-
 
 /* =========================
    使用アイテム
@@ -158,29 +166,27 @@ footer{
 .item-card{
     display:flex;
     gap:24px;
-
     background:#161616;
     border:1px solid var(--border);
-
     border-radius:18px;
     padding:20px;
 }
 
+/* 画像枠 */
 .item-image{
     width:180px;
     flex-shrink:0;
 }
 
+/* 画像：縦横比維持（重要） */
 .item-image img{
     width:100%;
-    aspect-ratio:1 / 1;
-
-    object-fit:cover;
-
-    border-radius:12px;
+    height:auto;
     display:block;
+    border-radius:12px;
 }
 
+/* テキスト */
 .item-info{
     flex:1;
 }
@@ -196,31 +202,6 @@ footer{
     color:var(--sub);
 }
 
-/* スマホ */
-
-@media (max-width:700px){
-
-    .item-card{
-        flex-direction:column;
-        gap:16px;
-    }
-
-    .item-image{
-        width:100%;
-    }
-
-    .item-image img{
-        aspect-ratio:16 / 9;
-    }
-
-    .item-info h3{
-        font-size:20px;
-    }
-}
-
-
-
-
 /* =========================
    ゲームの流れ
 ========================= */
@@ -233,10 +214,8 @@ footer{
     display:flex;
     gap:18px;
     align-items:flex-start;
-
     background:#161616;
     border:1px solid var(--border);
-
     border-radius:16px;
     padding:20px;
 }
@@ -248,16 +227,12 @@ footer{
 .step-number{
     min-width:52px;
     height:52px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:50%;
-
     background:var(--accent);
     color:#111;
-
     font-size:22px;
     font-weight:bold;
 }
@@ -283,7 +258,20 @@ footer{
     margin:10px 0;
 }
 
-@media (max-width:600px){
+/* =========================
+   レスポンシブ
+========================= */
+
+@media (max-width:700px){
+
+    .item-card{
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .item-image{
+        width:100%;
+    }
 
     .step{
         padding:18px;
@@ -301,6 +289,20 @@ footer{
     }
 }
 
+@media (max-width:600px){
+
+    .card{
+        padding:22px;
+    }
+
+    .card h2{
+        font-size:20px;
+    }
+
+    body{
+        line-height:1.8;
+    }
+}
 
 </style>
 </head>
@@ -401,7 +403,7 @@ footer{
         <div class="item-card">
 
             <div class="item-image">
-                <img src="./sheet_map.png" alt="謎解きシート">
+                <img src="./sheet_nazo.png" alt="謎解きシート">
             </div>
 
             <div class="item-info">
@@ -429,7 +431,7 @@ footer{
 
                 <p>
                     各フロアの地図です。<br>
-                    どの場所に何番の謎解きの手がかりがあるかが書かれています。aaaaaaaa
+                    どの場所に何番の謎解きの手がかりがあるかが書かれています。
                 </p>
             </div>
 
@@ -439,7 +441,7 @@ footer{
         <div class="item-card">
 
             <div class="item-image">
-                <img src="./sheet_map.png" alt="こたえシート">
+                <img src="./sheet_kotae.png" alt="こたえシート">
             </div>
 
             <div class="item-info">
