@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>イベントルール説明</title>
+
+<style>
+:root{
+    --bg:#111;
+    --card:#1b1b1b;
+    --text:#f3f3f3;
+    --sub:#b8b8b8;
+    --accent:#d6b36a;
+    --border:#333;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
+    line-height:1.9;
+}
+
+.container{
+    width:min(900px, 92%);
+    margin:auto;
+    padding:40px 0 80px;
+}
+
+header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+header h1{
+    font-size:clamp(28px, 5vw, 46px);
+    letter-spacing:0.08em;
+    line-height: 1.4;
+    margin-bottom:12px;
+}
+
+header p{
+    color:var(--sub);
+    font-size:14px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:28px;
+    margin-bottom:24px;
+    box-shadow:0 0 20px rgba(0,0,0,0.25);
+}
+
+.card h2{
+    font-size:24px;
+    margin-bottom:18px;
+    color:var(--accent);
+    border-left:4px solid var(--accent);
+    padding-left:12px;
+}
+
+.card h3{
+    margin-top:24px;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.card p{
+    margin-bottom:14px;
+}
+
+.card ul{
+    padding-left:1.2em;
+}
+
+.card li{
+    margin-bottom:10px;
+}
+
+.notice{
+    background:#2a1f12;
+    border:1px solid #7d5b2c;
+}
+
+.notice strong{
+    color:#ffd27a;
+}
+
+.button-area{
+    text-align:center;
+    margin-top:40px;
+}
+
+.button{
+    display:inline-block;
+    background:var(--accent);
+    color:#111;
+    text-decoration:none;
+    font-weight:bold;
+    padding:16px 38px;
+    border-radius:999px;
+    transition:0.2s;
+}
+
+.button:hover{
+    transform:translateY(-2px);
+    opacity:0.9;
+}
+
+footer{
+    margin-top:60px;
+    text-align:center;
+    color:#777;
+    font-size:13px;
+}
+
+@media (max-width:600px){
+
+    .card{
+        padding:22px;
+    }
+
+    .card h2{
+        font-size:20px;
+    }
+
+    body{
+        line-height:1.8;
+    }
+}
+
+
+/* =========================
+   使用アイテム
+========================= */
+
+.item-list{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    margin-top:20px;
+}
+
+.item-card{
+    display:flex;
+    gap:24px;
+
+    background:#161616;
+    border:1px solid var(--border);
+
+    border-radius:18px;
+    padding:20px;
+}
+
+.item-image{
+    width:180px;
+    flex-shrink:0;
+}
+
+.item-image img{
+    width:100%;
+    aspect-ratio:1 / 1;
+
+    object-fit:cover;
+
+    border-radius:12px;
+    display:block;
+}
+
+.item-info{
+    flex:1;
+}
+
+.item-info h3{
+    margin:0 0 12px;
+    font-size:22px;
+    color:var(--accent);
+}
+
+.item-info p{
+    margin:0;
+    color:var(--sub);
+}
+
+/* スマホ */
+
+@media (max-width:700px){
+
+    .item-card{
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .item-image{
+        width:100%;
+    }
+
+    .item-image img{
+        aspect-ratio:16 / 9;
+    }
+
+    .item-info h3{
+        font-size:20px;
+    }
+}
+
+
+
+
+/* =========================
+   ゲームの流れ
+========================= */
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+
+    background:#161616;
+    border:1px solid var(--border);
+
+    border-radius:16px;
+    padding:20px;
+}
+
+.step + .step{
+    margin-top:18px;
+}
+
+.step-number{
+    min-width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--accent);
+    color:#111;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+.step-content{
+    flex:1;
+}
+
+.step-content h3{
+    margin:0 0 8px;
+    font-size:20px;
+}
+
+.step-content p{
+    margin:0;
+    color:var(--sub);
+}
+
+.step-arrow{
+    text-align:center;
+    font-size:26px;
+    color:var(--accent);
+    margin:10px 0;
+}
+
+@media (max-width:600px){
+
+    .step{
+        padding:18px;
+        gap:14px;
+    }
+
+    .step-number{
+        min-width:44px;
+        height:44px;
+        font-size:18px;
+    }
+
+    .step-content h3{
+        font-size:18px;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>大丸心斎橋店 300年の記憶<br>謎解きゲーム 事前案内</h1>
+        <p>必ず最後までご確認ください</p>
+    </header>
+
+    <section class="card">
+        <h2>イベントについて</h2>
+        <p>
+            本イベントは、X年X日に大丸心斎橋店営業終了後に開催される謎解きゲームです。<br>
+            こちらでは、どのようにイベントが進むのかをご案内しています。<br>
+            参加チームのうち少なくとも1名はこちらの内容を確認し、チームメンバーで共有くださいますようお願いします。
+        </p>
+    </section>
+
+
+<!-- ゲームの流れ -->
+
+<section class="card">
+    <h2>ゲームの流れ</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-number">1</div>
+
+            <div class="step-content">
+                <h3>アナウンス・ゲームスタート</h3>
+                <p>
+                    普段お仕事をされる場所の周辺か、その階層のエスカレーター前にチームでお集まり下さい。<br>
+                    館内放送にて、ゲームの説明とスタートの合図があります。
+                </p>
+            </div>
+        </div>
+
+        <div class="step-arrow">↓</div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+
+            <div class="step-content">
+                <h3>館内を移動して謎を解く</h3>
+                <p>
+                    封筒内のアイテムを見て謎解きを行い、こたえをこたえシートに書き込んでいきます。<br>
+                    謎を解くにはマップシートを見て指定された場所へ行き、手がかりを見つける必要があります。
+                </p>
+            </div>
+        </div>
+
+        <div class="step-arrow">↓</div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+
+            <div class="step-content">
+                <h3>こたえシートの指示が完成</h3>
+                <p>
+                    こたえシートに指示が現れたら、それに従います。<br>
+                    すると、最後の謎に挑戦することができます。
+                </p>
+            </div>
+        </div>
+
+        <div class="step-arrow">↓</div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+
+            <div class="step-content">
+                <h3>最後の謎を解く</h3>
+                <p>
+                    最後の謎を解き、こたえが現れたらそれをLINEに送信します。<br>
+                    すると、クリア票がもらえる場所がわかります。<br>
+                    その場所へ行き、順位が書かれたクリア票を受け取って下さい。<br><br>
+                    これにてゲームクリアとなります。
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<section class="card">
+    <h2>封筒の中のアイテム</h2>
+
+    <div class="item-list">
+
+        <!-- アイテム -->
+        <div class="item-card">
+
+            <div class="item-image">
+                <img src="image/sample1.jpg" alt="謎解きシート">
+            </div>
+
+            <div class="item-info">
+                <h3>謎解きシート</h3>
+
+                <p>
+                    1Fの謎解き × 1、2〜3Fの謎解き × 1<br>
+                    4〜5Fの謎解き × 1、6F 8Fの謎解き × 1<br>
+                    9F謎解きと、どの場所でも解ける謎解き × 1<br>
+                    の5枚が入っています。
+                </p>
+            </div>
+
+        </div>
+
+        <!-- アイテム -->
+        <div class="item-card">
+
+            <div class="item-image">
+                <img src="image/sample2.jpg" alt="マップシート">
+            </div>
+
+            <div class="item-info">
+                <h3>マップシート</h3>
+
+                <p>
+                    各フロアの地図です。<br>
+                    どの場所に何番の謎解きの手がかりがあるかが書かれています。
+                </p>
+            </div>
+
+        </div>
+
+        <!-- アイテム -->
+        <div class="item-card">
+
+            <div class="item-image">
+                <img src="image/sample2.jpg" alt="こたえシート">
+            </div>
+
+            <div class="item-info">
+                <h3>こたえシート</h3>
+
+                <p>
+                    クロスワードのような、文字を書き込むマスが並んだシートです。<br>
+                    各謎のこたえが分かったら、対応したマス目にそのこたえを書き込んでいきます。<br>
+                    <br>
+                    こたえを埋めていくと、最後の謎に挑戦するために必要な指示が徐々に現れます。
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <section class="card">
+        <h2>参加方法</h2>
+        <ul>
+            <li>受付にてチケットをご提示ください</li>
+            <li>案内開始時刻の10分前までにお越しください</li>
+            <li>ゲーム中はスタッフの指示に従ってください</li>
+        </ul>
+    </section>
+
+    <section class="card notice">
+        <h2>注意事項</h2>
+
+        <ul>
+            <li>
+                <strong>ネタバレは禁止です。</strong><br>
+                SNS・ブログ等への解答掲載はご遠慮ください。
+            </li>
+
+            <li>
+                他のお客様の迷惑となる行為はご遠慮ください。
+            </li>
+
+            <li>
+                会場内では走らないでください。
+            </li>
+
+            <li>
+                一部暗い場所があります。
+            </li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>よくある質問</h2>
+
+        <h3>Q. 一人参加でも大丈夫ですか？</h3>
+        <p>
+            はい。お一人で参加される方も多くいらっしゃいます。
+        </p>
+
+        <h3>Q. 制限時間はありますか？</h3>
+        <p>
+            イベントによって異なります。チケットページをご確認ください。
+        </p>
+    </section>
+
+    <div class="button-area">
+        <a href="#" class="button">
+            内容を確認しました
+        </a>
+    </div>
+
+    <footer>
+        © Mystery Event
+    </footer>
+
+</div>
+
+</body>
+</html>
